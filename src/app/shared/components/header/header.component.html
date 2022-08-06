@@ -1,1 +1,44 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      <h1>SDA Shop</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-raised-button color="accent" [routerLink]="'/products'"> Produkty </a>
+        <a mat-raised-button color="accent" [routerLink]="'/categories'"> Kategorie </a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <button mat-button [matMenuTriggerFor]="produkty"><button mat-raised-button color="primary">Produkty</button></button>
+      <button mat-menu-item><button mat-raised-button color="warn"><a class="close-button" (click)="sidenav.toggle()" href="">Zamknij</a></button></button>
+
+        <mat-menu #produkty="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="clothes">Odzież</button>
+            <button mat-menu-item [matMenuTriggerFor]="accesories">Akcesoria</button>
+        </mat-menu>
+
+        <mat-menu #clothes="matMenu">
+        <button mat-menu-item>T-shirts</button>
+        <button mat-menu-item>Spodnie</button>
+        </mat-menu>
+
+        <mat-menu #accesories="matMenu">
+        <button mat-menu-item>Plecaki</button>
+        <button mat-menu-item>Okulary</button>
+        <button mat-menu-item>Czapki</button>
+        </mat-menu>
+        
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 88vh;">
+  
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
