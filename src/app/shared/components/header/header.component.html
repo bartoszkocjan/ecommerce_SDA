@@ -3,7 +3,7 @@
       <button mat-icon-button>
         <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
       </button>
-      <h1> SDA SHOP LOGO</h1>
+      <h1 [routerLink]="'/home'">SDA SHOP LOGO</h1>
       <span class="menu-spacer"></span>
       <div>
         <a mat-raised-button class="button-spacer" matBadge="8" matBadgePosition="before" matBadgeColor="warn" [routerLink]="'/cart'"> <fa-icon [icon]="faCartShopping"></fa-icon> </a>
@@ -23,6 +23,7 @@
         <mat-menu #produkty="matMenu">
             <button mat-menu-item [matMenuTriggerFor]="clothes">Odzież</button>
             <button mat-menu-item [matMenuTriggerFor]="accesories">Akcesoria</button>
+            <button mat-menu-item [routerLink]="'/products'">Wszystkie</button>
         </mat-menu>
 
         <mat-menu #clothes="matMenu">
@@ -39,7 +40,6 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <div style="height: 86vh;">
-        <app-hero-banner></app-hero-banner>
         <router-outlet></router-outlet>
       </div>
     </mat-sidenav-content>

@@ -9,7 +9,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeroBannerComponent } from './shared/components/hero-banner/hero-banner.component';
-import { HomeComponent } from './shared/components/home/home.component'
+import { HomeComponent } from './shared/components/home/home.component';
+import { ProductsComponent } from './shared/components/products/products.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './shared/components/home/home.component'
     HeaderComponent,
     FooterComponent,
     HeroBannerComponent,
-    HomeComponent
+    HomeComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
