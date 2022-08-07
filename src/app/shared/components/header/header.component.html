@@ -3,19 +3,22 @@
       <button mat-icon-button>
         <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
       </button>
-      <h1>SDA Shop</h1>
+      <h1> SDA SHOP LOGO</h1>
       <span class="menu-spacer"></span>
       <div>
-        <a mat-raised-button color="accent" [routerLink]="'/products'"> Produkty </a>
-        <a mat-raised-button color="accent" [routerLink]="'/categories'"> Kategorie </a>
+        <a mat-raised-button class="button-spacer" matBadge="8" matBadgePosition="before" matBadgeColor="warn" [routerLink]="'/cart'"> <fa-icon [icon]="faCartShopping"></fa-icon> </a>
+        <a mat-raised-button class="button-spacer" [routerLink]="'/login'"> Zaloguj </a>
+
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
 
   <mat-sidenav-container>
     <mat-sidenav #sidenav>
-      <button mat-button [matMenuTriggerFor]="produkty"><button mat-raised-button color="primary">Produkty</button></button>
-      <button mat-menu-item><button mat-raised-button color="warn"><a class="close-button" (click)="sidenav.toggle()" href="">Zamknij</a></button></button>
+      <button class="sidenav-button-spacer" mat-button [matMenuTriggerFor]="produkty"><button mat-raised-button>Produkty</button></button>
+        <mat-divider></mat-divider>
+      <button class="sidenav-button-spacer" mat-button><button mat-raised-button color="warn"><a class="close-button" (click)="sidenav.toggle()" href="">Zamknij</a></button></button>
+        <mat-divider></mat-divider>
 
         <mat-menu #produkty="matMenu">
             <button mat-menu-item [matMenuTriggerFor]="clothes">Odzież</button>
@@ -35,8 +38,8 @@
         
     </mat-sidenav>
     <mat-sidenav-content>
-      <div style="height: 88vh;">
-  
+      <div style="height: 86vh;">
+        <app-hero-banner></app-hero-banner>
         <router-outlet></router-outlet>
       </div>
     </mat-sidenav-content>

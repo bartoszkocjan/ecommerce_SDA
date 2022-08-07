@@ -2,6 +2,18 @@
     flex: 1 1 auto;
 }
 
-.close-button{
+.button-spacer {
+    margin: 5px;
+}
+
+.sidenav-button-spacer {
+    padding: 10px;
+}
+
+a {
     text-decoration: none;
+
+    :visited {
+        color: black;
+    }
  }
