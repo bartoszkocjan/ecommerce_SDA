@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +11,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeroBannerComponent } from './shared/components/hero-banner/hero-banner.component';
 import { HomeComponent } from './shared/components/home/home.component';
-import { ProductsComponent } from './shared/components/products/products.component'
+import { ProductsComponent } from './shared/components/products/products.component';
+import { CartComponent } from './shared/components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,11 @@ import { ProductsComponent } from './shared/components/products/products.compone
     FooterComponent,
     HeroBannerComponent,
     HomeComponent,
-    ProductsComponent
+    ProductsComponent,
+    CartComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

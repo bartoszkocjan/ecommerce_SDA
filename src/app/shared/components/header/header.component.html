@@ -22,19 +22,18 @@
 
         <mat-menu #produkty="matMenu">
             <button mat-menu-item [matMenuTriggerFor]="clothes">Odzież</button>
-            <button mat-menu-item [matMenuTriggerFor]="accesories">Akcesoria</button>
+            <button mat-menu-item [matMenuTriggerFor]="other">Pozostałe</button>
             <button mat-menu-item [routerLink]="'/products'">Wszystkie</button>
         </mat-menu>
 
         <mat-menu #clothes="matMenu">
-        <button mat-menu-item>T-shirts</button>
-        <button mat-menu-item>Spodnie</button>
+        <button mat-menu-item>Odzież męska</button>
+        <button mat-menu-item>Odzież damska</button>
         </mat-menu>
 
-        <mat-menu #accesories="matMenu">
-        <button mat-menu-item>Plecaki</button>
-        <button mat-menu-item>Okulary</button>
-        <button mat-menu-item>Czapki</button>
+        <mat-menu #other="matMenu">
+        <button mat-menu-item>Elektronika</button>
+        <button mat-menu-item>Biżuteria</button>
         </mat-menu>
         
     </mat-sidenav>

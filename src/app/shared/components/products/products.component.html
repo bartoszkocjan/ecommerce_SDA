@@ -1,1 +1,31 @@
-<p>products works!</p>
+<div class="container">
+  <div class="container-orders">
+    <div class="container-categories">
+      <div class="container-categories-header">
+        <h3>Popularne kategorie:</h3>
+      </div>
+      <div class="categories">
+        <button mat-raised-button color="primary" class="categories-icon" type="submit" (click)="filterType('electronics')"><fa-icon class="icon-add" [icon]="faComputer"></fa-icon><span>Elektronika</span></button>
+        <button mat-raised-button color="primary" class="categories-icon" type="submit" (click)="filterType('jewelery')"><fa-icon class="icon-add" [icon]="faGem"></fa-icon><span>Biżuteria</span></button>
+        <button mat-raised-button color="primary" class="categories-icon" type="submit" (click)="filterType('men\'s clothing')"><fa-icon class="icon-add" [icon]="faMars"></fa-icon><span>Odzież męska</span></button>
+        <button mat-raised-button color="primary" class="categories-icon" type="submit" (click)="filterType('women\'s clothing')"><fa-icon class="icon-add" [icon]="faVenus"></fa-icon><span>Odzież damska</span></button>
+      </div>
+    </div>
+    <div class="listProducts">
+      <div class="showProducts">
+        <div class="infoProduct" *ngFor="let product of items">
+          <div class="description">
+            <div class="image">
+              <img [src]="product.image" alt="product.title">
+            </div>
+            <h2 class="title">{{product.title }}</h2>
+            <h1 class="price">$ {{product.price }}</h1>
+            <p>{{product.description}}</p>
+            <div class="center">
+            <button mat-raised-button color="primary" type="submit" (click)="addProduct(product)"><fa-icon class="icon-add" [icon]="faShoppingCart"></fa-icon><span>Dodaj do koszyka</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
