@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { Router } from '@angular/router';
-import { faArrowLeft, faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHandPointLeft, faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
+
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
+
 export class CartComponent implements OnInit {
 
   products: any[] = [];
   base: number = 1;
   total: number = 0;
+  totalQuantity: number = 0;
   myModal = false;
 
   constructor(private communication: CommunicationService, private router: Router) {
@@ -22,19 +26,14 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts();
     this.getTotal();
+    this.getTotalQuantity();
   }
 
-  getProducts(){
+  public getProducts(){
     const objProduct = JSON.parse(localStorage.getItem('cart') || '{}');
-    console.log(objProduct);
+    // console.log(objProduct);
     this.products = objProduct;
   }
-
-  // getTotal() {
-  //   this.total = this.products
-  //     .map((item: {id: number, products: { productId: number, title: string, image: string,price: number, quantity: number}}) => item.products.quantity * item.products.price)
-  //     .reduce((acc: any, item: any) => (acc += item), 0);
-  // }
 
   changeAmount(base: number, item: any) {
     if (item.products.quantity + base < 1) {
@@ -58,7 +57,7 @@ export class CartComponent implements OnInit {
     this.myModal = e;
   }
   changeView() {
-    this.router.navigate(['home']);
+    this.router.navigate(['products']);
   }
 
   decreaseOneItem(item: any) {
@@ -69,6 +68,7 @@ export class CartComponent implements OnInit {
       return el
     })
     this.getTotal()
+    this.getTotalQuantity()
   }
   increaseOneItem(item: any) {
     this.products = this.products.map((el) => {
@@ -81,20 +81,29 @@ export class CartComponent implements OnInit {
       return el
     })
     this.getTotal()
+    this.getTotalQuantity()
   }
   deleteItem(item: any) {
     let index = this.products.indexOf(item)
     this.products.splice(index, 1)
     this.getTotal()
+    this.getTotalQuantity()
   }
 
-  getTotal() {
+  public getTotal() {
     this.total = this.products
       .map(item => item.products.quantity * item.products.price)
       .reduce((acc, item) => acc += item, 0)
   }
 
-  faArrowLeft = faArrowLeft;
+  public getTotalQuantity(){
+    this.totalQuantity = this.products
+    .map(item => item.products.quantity)
+    .reduce((acc, item) => acc += item, 0)
+  }
+
+
+  faHandPointLeft = faHandPointLeft;
   faMinus = faMinus;
   faPlus = faPlus;
   faTrashAlt = faTrashAlt;

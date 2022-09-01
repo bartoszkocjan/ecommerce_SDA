@@ -7,10 +7,10 @@ import { BehaviorSubject } from 'rxjs';
 export class CommunicationService {
 
  // constructor() { }
-  disparador = new BehaviorSubject({});
-  disparadorObservable = this.disparador.asObservable();
+  trigger = new BehaviorSubject({});
+  triggerObservable = this.trigger.asObservable();
 
   sendCart(cart: any) {
-    this.disparador.next(cart);
+    this.trigger.next(cart);
   }
 }

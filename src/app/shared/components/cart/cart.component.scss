@@ -4,6 +4,12 @@
     margin-left: 10px;
 }
 
+.container{
+    margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
 .example-card {
     max-width: 400px;
     display: flex;
@@ -11,10 +17,21 @@
     justify-content: space-around;
   }
 
+ .hoover-button{
+    margin: 20px;
+    border-style: none;
+    width: auto;
+    border-radius: 10px;
+  
+    &:hover{
+      background-color: var(--principal-color);
+      transition: 0.5s
+    }
+  }
+
 .header {
 margin: 20px;
 }
-
 
 .main {
     display: flex;
@@ -22,7 +39,6 @@ margin: 20px;
     width: 100%;
     justify-content: center;
 }
-
 
 .product-cards {
     width: 75%;
@@ -34,24 +50,20 @@ margin: 20px;
     align-items: center;
 }
 
-
 img {
     width: 50px;
     height: 50px;
     padding: 15px;
 }
 
-
 .title {
     font-size: 14px;
 }
-
 
 .trash {
     transform: translate(240px, 70px);
     color: var(--principal-color);
 }
-
 
 .amount {
     transform: translate(60px, -10px);
@@ -63,11 +75,9 @@ img {
     width: 70px;
 }
 
-
 .quantity-buttons {
     font-weight: bold;
 }
-
 
 .container-amount {
     width: 100%;
@@ -76,38 +86,22 @@ img {
     align-items: center;
 }
 
-
 .total {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-right: 20px;
 }
-
 
 .total-amount {
     font-weight: bold;
     color: var(--principal-color);
 }
 
-
-.buy{
-    display: flex;
-    justify-content: center;
-    border-style: none;
-    color: var(--background-color);
-    background-color: var(--principal-color);
-    border-radius: 10px;
-    font-size: 18px;
-    padding: 5px;
-    width: 300px;
-}
-
-
 .circle {
     border-style: none;
     background-color: var(--background-color);
 }
-
 
 .icon-quantity {
     border-style: none;
@@ -127,44 +121,13 @@ img {
 }
 
 
-.modal {
-    width: 40%;
-    height: 20%;
-    background: #FFFFFF;
-    border: 1px solid var(--principal-color);
-    box-sizing: border-box;
-    border-radius: 5px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
 
+// @media only screen and ( min-width: 9600px) {
+//     .amount{
+//         transform: translate(790px, -5px);
+//     }
+//     .trash {
+//          transform: translate(980px, 60px);
+//     }
+// }
 
-
-  
-
-@media only screen and ( min-width: 9600px) {
-    .amount{
-        transform: translate(790px, -5px);
-    }
-
-    .trash {
-         transform: translate(980px, 60px);
-    }
-
-}
-
-
-@media only screen and (max-width: 768px) {
-    .trash{
-        transform: translate(240px, 70px);
-    }
-    
-    .amount {
-        transform: translate(60px, -10px);
-    }
-    
-}

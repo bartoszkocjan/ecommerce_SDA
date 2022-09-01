@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CartModel, ICartModel } from '../models/cart-model';
-import { IProductDetail } from '../models/product-model';
+import { CartModel } from '../models/cart-model';
+// import { IProductDetail } from '../models/product-model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class CartService {
 
   constructor(private httpClient: HttpClient) {
     this.domain = environment.domain;
-    this.endpoint = '/carts';
+    this.endpoint = '/cart';
   }
 
   getCarts(): Observable<CartModel[]> {

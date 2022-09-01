@@ -1,55 +1,46 @@
-
-<mat-card class="example-card">
-  <section class="section">
-    <header class="container-balance">
-      <div class="container">
-        <fa-icon class="icon" [icon]="faArrowLeft" (click)="changeView()">Powrót</fa-icon>
-      </div>
-    </header>
-    <main class="main">
-      <section class="product-cards" *ngFor="let item of products">
-        <div class="img-products-container">
-          <img class="img-products" src={{item.products.image}} alt="">
+<div class="container">
+  <mat-card class="example-card">
+    <section class="section">
+      <header class="container-balance">
+        <div class="back-arrow">
+          <button mat-raised-button color="primary" class="hoover-button" type="submit" (click)="changeView()"><fa-icon class="icon" [icon]="faHandPointLeft"></fa-icon><span>Powrót</span></button>
         </div>
-        <div class="product-info">
-          <h1 class="title">{{item.products.title}}</h1>
-          <p>Liczba w koszyku: {{item.products.quantity}}</p>
-          <h1 class="price">$ {{item.products.price}}</h1>
-          <fa-icon class="icon trash" [icon]="faTrashAlt" (click)="deleteItem(item)"></fa-icon>
-          <div class="amount">
-            <button class="circle">
-              <fa-icon class="icon-quantity" [icon]="faMinus" (click)="decreaseOneItem(item)"></fa-icon>
-            </button>
-            <span class="quantity-buttons">{{item.products.quantity}}</span>
-            <button class="circle">
-              <fa-icon class="icon-quantity" [icon]="faPlus" (click)="increaseOneItem(item)"></fa-icon>
-            </button>
+      </header>
+      <main class="main">
+        <section class="product-cards" *ngFor="let item of products">
+          <div class="img-products-container">
+            <img class="img-products" src={{item.products.image}} alt="">
           </div>
+          <div class="product-info">
+            <h1 class="title">{{item.products.title}}</h1>
+            <p>Liczba w koszyku: {{item.products.quantity}}</p>
+            <h1 class="price">$ {{item.products.price}}</h1>
+            <fa-icon class="icon trash" [icon]="faTrashAlt" (click)="deleteItem(item)"></fa-icon>
+            <div class="amount">
+              <button class="circle">
+                <fa-icon class="icon-quantity" [icon]="faMinus" (click)="decreaseOneItem(item)"></fa-icon>
+              </button>
+              <span class="quantity-buttons">{{item.products.quantity}}</span>
+              <button class="circle">
+                <fa-icon class="icon-quantity" [icon]="faPlus" (click)="increaseOneItem(item)"></fa-icon>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <div class="container-amount">
+        <div class="total">
+          <h1>Łącznie do zapłaty:</h1>
+          <h1 class="total-amount">$ {{total | number}}</h1>
         </div>
-      </section>
-    </main>
-    <div class="container-amount">
-      <div class="total">
-        <h1>Łącznie</h1>
-        <h1 class="total-amount">$ {{total}}</h1>
-      </div>
-      <div>
-        <button class="buy" (click)="modal()">Kup teraz</button>
-      </div>
-    </div>
-  </section>
-  <section *ngIf="myModal==true">
-    <section class="modal-section">
-      <div class="modal">
-        <p class="text-modal">Formularz zamówienia w modalu</p>
-        <button mat-raised-button color="primary" routerLink='/products'>Powrót</button>
+        <div class="total">
+          <h1>Łączna ilość sztuk:</h1>
+          <h1 class="total-amount">{{totalQuantity}}</h1>
+        </div>
+        <div>
+          <button mat-raised-button color="primary" class="hoover-button" type="submit" (click)="modal()"><span>Kup teraz</span></button>
+        </div>
       </div>
     </section>
-  </section>
-
-</mat-card>
-
-
-
-
-
+  </mat-card>
+</div>
